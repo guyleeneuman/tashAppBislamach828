@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="cloud-overlay"></div>
+<img class="phone" src="assets/elements/hovaChat.png" alt="icon 1">
+    <div  onclick="goToMenu()">
+    <img class="moreWishes" src="assets/elements/moreWishes.png" alt="icon 1">
+        <img class="slide" src="assets/titles/slide.png" alt="icon 1">
+
+    </div>
+    <img class="chat" src="assets/elements/ginnieChat.png" alt="icon 1">
+    <img class="titleh" src="assets/subsHova/s21.png" alt="start button">
+<div class="textS">ת"ש הטאץ' הינה מערכת שמטרתה להנגיש לחייל את כלל המידע הדרוש לו ואת זכויותיו. בנוסף, החייל יוכל ליות בבקרה אחר תהליכים הפתוחים איתו במשרד ת"ש. המערכת נמצאת בפלטפורמת צ 360 אליה ניתן להיכנס מהנייד/ מהמחשב. </div>
+
+
+
+<div class="buttonBack" onclick="goBack()">
+    <img src="assets/buttons/backBtn.png" alt="back">
+</div>
+
+<!-- <img class="ginnie" src="assets/elements/ginnieMenu.png" alt="icon 1"> -->
+<img class="text" src="assets/titles/menuText.png" alt="icon 1">
+<div class="overlay"></div>
+
+
+</body>
+</html>
+
+<script>
+function goToSub1() {
+    window.location.href = "subject1.html";
+}
+function goToSub2() {
+    window.location.href = "subject2.html";
+}
+function goToSub4() {
+    window.location.href = "subject4.html";
+}
+function goToSub3() {
+    window.location.href = "subject3.html";
+}
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+
+function goBack() {
+    window.location.href = "sub2P2.html";
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+const texts = [
+"תשמש- תשלומי משפחה נועד להבטיח את קיומן המינימאלי של משפחות החיילים הנזקקות לכך, באמצעות תשלומים חודשיים קבועים למשפחת החייל.",
+"סוגי תשמש- #תשמש הורים- חייליוכל לקבל תשמש עבור הוריו. הכזאות תכנס ישר לחשבון הבנק של הוריו. #תשמש נשוי- חייל נשוי יוכל לקבל תשמש עבור בן זוגו- הזכאות תכנס ישר לחשבון בן הזוג.",
+"אישורים נדרשים: #תז+ספח ילדים #ריכוז יתרות הורים/בן הזוג #עובר ושב ופירוט כרטיס אשראי 3 חודשים אחרונים של ההורה/ בן הזוג #אישור רכב בבעלות - מחירון יצחק לוי/יד 2, רישיון רכב, הצהרת קילומטראז. #אישורי הכנסות 3 חודשים אחרונים- תלושי שכר/ אישור קצבאות.",
+"אישורים נדרשים: #אישורים על הלוואות/חובות במידה ויש #פסק דין גירושין במידה ויש #כל אישור שיש]פוך או רעל המצב/ תמונה כלכלית #אישור שבוע הריון #אישור לימודים + מערכת שעות",
+"הטבות חייל זכאי תשמש: # מענק חודשי קבוע תוספת שכר החייל- רמת פעילות א פלוס: 200 שח רמת פעילות א: 200 שח רמת פעילות א בטש מיוחד- 200 שח רמת פעילות ב ומטה 88 שח.",
+"תווי קנייה על סך 150 שח: חייל שהוכר לתשלומי משפחה ברמת פעילות א ומעלה זכאי בכל חודש לתווי קנייה הנכנסים ישירות לחוגר. בנוסף זכאי לקבל תווי קנייה בך 500 שח בראש השנה ופסח",
+"חייל הזכאי תשמש שנמצא בחופשת מחלה בביתו למעלה מ3 ימים זכאי לקבל דמי כלכלה בימים אלו החל מהיום הראשון. #מענק גאות ושפל: ניתן כתוספת לזכאות התשמש -רמת פעילות א פלוס: 658 שח - רמת פעילות א : 254 - רמת פעילות א בטש- 577 שח."
+
+];
+
+const titleImages = [
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+    "assets/subsHova/s15.png",
+
+];
+
+let currentIndex = 0;
+
+const textElement = document.querySelector(".textS");
+const titleElement = document.querySelector(".titleh");
+
+// טעינה ראשונית
+updateContent();
+
+// ======================
+// 📱 מובייל
+// ======================
+let startY = 0;
+let endY = 0;
+
+textElement.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+});
+
+textElement.addEventListener("touchend", (e) => {
+    endY = e.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+// ======================
+// 🖱️ דסקטופ
+// ======================
+textElement.addEventListener("click", (e) => {
+    const rect = textElement.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+
+    if (clickY < rect.height / 2) {
+        goPrev();
+    } else {
+        goNext();
+    }
+});
+
+// ======================
+// 🔥 swipe
+// ======================
+function handleSwipe() {
+    const diff = startY - endY;
+
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+        goPrev();
+    } else {
+        goNext();
+    }
+}
+
+// ======================
+// ➡️ קדימה
+// ======================
+function goNext() {
+    currentIndex = Math.min(currentIndex + 1, texts.length - 1);
+    updateContent();
+}
+
+// ======================
+// ⬅️ אחורה
+// ======================
+function goPrev() {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateContent();
+}
+
+// ======================
+// 🔄 עדכון תוכן
+// ======================
+function updateContent() {
+    textElement.style.opacity = 0;
+    titleElement.style.opacity = 0;
+
+    setTimeout(() => {
+        textElement.innerText = texts[currentIndex];
+        titleElement.src = titleImages[currentIndex];
+
+        textElement.style.opacity = 1;
+        titleElement.style.opacity = 1;
+    }, 150);
+}
+
+});
+</script>

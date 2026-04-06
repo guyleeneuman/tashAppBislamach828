@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="cloud-overlay"></div>
+<img class="phone" src="assets/elements/hovaChat.png" alt="icon 1">
+    <div  onclick="goToMenu()">
+    <img class="moreWishes" src="assets/elements/moreWishes.png" alt="icon 1">
+        <img class="slide" src="assets/titles/slide.png" alt="icon 1">
+
+    </div>
+    <img class="chat" src="assets/elements/ginnieChat.png" alt="icon 1">
+    <img class="titleh" src="assets/subsHova/s21.png" alt="start button">
+<div class="textS">ת"ש הטאץ' הינה מערכת שמטרתה להנגיש לחייל את כלל המידע הדרוש לו ואת זכויותיו. בנוסף, החייל יוכל ליות בבקרה אחר תהליכים הפתוחים איתו במשרד ת"ש. המערכת נמצאת בפלטפורמת צ 360 אליה ניתן להיכנס מהנייד/ מהמחשב. </div>
+
+
+
+<div class="buttonBack" onclick="goBack()">
+    <img src="assets/buttons/backBtn.png" alt="back">
+</div>
+
+<!-- <img class="ginnie" src="assets/elements/ginnieMenu.png" alt="icon 1"> -->
+<img class="text" src="assets/titles/menuText.png" alt="icon 1">
+<div class="overlay"></div>
+
+
+</body>
+</html>
+
+<script>
+function goToSub1() {
+    window.location.href = "subject1.html";
+}
+function goToSub2() {
+    window.location.href = "subject2.html";
+}
+function goToSub4() {
+    window.location.href = "subject4.html";
+}
+function goToSub3() {
+    window.location.href = "subject3.html";
+}
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+
+function goBack() {
+    window.location.href = "sub2P2.html";
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+const texts = [
+"חופשות החייל הנשוי- #חופשה מיוחדת לרגל נישואין: זכאות ל10 ימי מיוחדת. ניתן לנצל את החופשה חודש טרם מועד החתונה ועד שלוש חודשים לאחר מועד החתונה. עבור יום החתונה יש ליידע את המפקד. #חופשה מיוחדת עקב הריון: זכאות לחופשה עד 7 ימים בגין טיפולים או בדיקות.",
+"#חופשה מיוחדת עבור לידה/אימוץ: זכאות ל8 ימים. ניתן לנצל את החופשה חודש טרם תאריך הלידה ועד כחודש אחריה. #חופשה מיוחדת לטיפול פוריות: לחייל 12 ימים ולחיילת 16. #ליווי בת/בן הזוג לטיפול פוריות : זכאות לחופשה בת 5 ימים.",
+"#חופשה מיוחדת עקב מחלת בן/בת הזוג: חייל אשר נאלץ להישאר בביתו לטיפול בבן/בת הזוג לאור מצבו הרפואי זכאי לחופשה של עד 6 ימים. #מחלת ילד: חייל שהינו הורה לילד אשר נאלץ להישאר ביתו לצורך טיפול בילד בשל מצבו הרפואי זכאי ל8 ימי חופשה בשנהה לכל היותר וחופשה של עד 60 ימים בגין מחלה ממארת.",
+"#מענק נישואין: מוענק לחייל המוזן כנשוי/ידוע בציבור במערכות צהל. #תווי קנייה: חייל המשרת ברמת פעילות ב והינו הורה לילד וחייל המשרת ברמת פעילות א ומעלה ונשוי, ללא התניה בזכאות תשמש זכאי לתווי קנייה בסך 300 שח כל חודש.",
+"#תשלומי משפחה: חייל נשוי ראשי להגיש בקשה לתשלומי משפחה בגין נישואיו, זכאות זו אינה אוטומטית ונבחנת בהתאם לקריטריוני הטבת תשמש חייל נשוי הזכאי להטבת תשמש בלבד זכאי ל50% האד באופן אוטומטי. #מענק לידת בן/בת: מענק חד פעמי עבור כל לידה. ",
+"#השתתפות שכר דירה: חייל הנשוי המשלם שכר דירה/משלם משכנתא ולא זכאי לתשמש יוכל להגיש בקשה להשתתפות בשכר דירה. תקרת הזכאות המקסימלית היא: 1149.20 שח. חיילים נשואים בעלי זכאות לשכר דירה יהיו זכאים ל75% האד 272.1 שח.",
+"#השתתפות הוצאות אחזקת דירה: חייל נשוי זכאי ל50% האד על סך 181.4 שח גם במידה ואינו זכאי לשכר דירה או תשמש. חייל שבבעלותו דירה על שמו, עליה אינו משלם משכנתא ואינו משכיר דירה אחרת, יהיה זכאי ל100% האד על סך 362.80 שח.",
+"#החזר גני ילדים: חייל חובה שהינו הורה לילד, אשר ילדו בטווח הגילאים שלושה חודשים עד חמש שנים המשרת ברמת פעילות ב ומעלה זכאי להחזר גני ילדים. גובה ההחזר החודשי הוא 580 שח עבור כל ילד. לבקשה זו החייל יידרש להציג את האישורים האים: קבלות בגין תשלום בפועל למסגרת+ הצהרת הפרט.",
+"#יום סידורים: חייל נשוי/ידוע בציבור המשרת ביחידה סגורה זכאי ליום סידורים אחת לחודש בהכשרה ראשונית ובשירותו הסדיר על חשבון המערכת. חייל נשוי/ידוע בציבור שהינו הורה לילד: המשרת בכל רמות הפעילות, זכאי ליום סידורים אחת לחודש בהכשרה ראשונית ובשירותו הסדיר, יום יום זה על חשבון המערכת.",
+"#הקלות בתנאי שירות: חייל שהינו נשוי והורה לילד זכאי להתש 3 ללא צורך בהבאת אישורים. #תווי חג: חייל נשוי הזכאי לתשמש זכאי לתווי קנייה על סך 500מ שח בראש השנה ובפסח. #הגעה מוקדמת הביתה: בערבי חג, ישוחררו חיילים  נשואים הביתה כיום לפני החג בשעה 17:30 לכל  המאוחר."
+];
+
+const titleImages = [
+    "assets/subsHova/s16.png",
+    "assets/subsHova/s16.png",
+    "assets/subsHova/s16.png",
+    "assets/subsHova/moneyBenfit.png",
+    "assets/subsHova/moneyBenfit.png",
+    "assets/subsHova/moneyBenfit.png",
+    "assets/subsHova/moneyBenfit.png",
+    "assets/subsHova/moneyBenfit.png",
+    "assets/subsHova/extraBenfit.png",
+    "assets/subsHova/extraBenfit.png",
+
+
+
+
+
+];
+
+let currentIndex = 0;
+
+const textElement = document.querySelector(".textS");
+const titleElement = document.querySelector(".titleh");
+
+// טעינה ראשונית
+updateContent();
+
+// ======================
+// 📱 מובייל
+// ======================
+let startY = 0;
+let endY = 0;
+
+textElement.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+});
+
+textElement.addEventListener("touchend", (e) => {
+    endY = e.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+// ======================
+// 🖱️ דסקטופ
+// ======================
+textElement.addEventListener("click", (e) => {
+    const rect = textElement.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+
+    if (clickY < rect.height / 2) {
+        goPrev();
+    } else {
+        goNext();
+    }
+});
+
+// ======================
+// 🔥 swipe
+// ======================
+function handleSwipe() {
+    const diff = startY - endY;
+
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+        goPrev();
+    } else {
+        goNext();
+    }
+}
+
+// ======================
+// ➡️ קדימה
+// ======================
+function goNext() {
+    currentIndex = Math.min(currentIndex + 1, texts.length - 1);
+    updateContent();
+}
+
+// ======================
+// ⬅️ אחורה
+// ======================
+function goPrev() {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateContent();
+}
+
+// ======================
+// 🔄 עדכון תוכן
+// ======================
+function updateContent() {
+    textElement.style.opacity = 0;
+    titleElement.style.opacity = 0;
+
+    setTimeout(() => {
+        textElement.innerText = texts[currentIndex];
+        titleElement.src = titleImages[currentIndex];
+
+        textElement.style.opacity = 1;
+        titleElement.style.opacity = 1;
+    }, 150);
+}
+
+});
+</script>

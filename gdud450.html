@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title"   src="assets/titles/gdud450Title.png" alt="icon 1">
+    <!-- <img class="instructions" src="assets/titles/sub3Instructions.png" alt="icon 1"> -->
+
+
+<img  class="backgroundPage" src="assets/elements/note.png" alt="subject 1">
+
+</div>
+
+<div class="buttonBack" onclick="goBacksub4()">
+    <img src="assets/buttons/backBtn.png" alt="back">
+</div>
+<div  class="text"> -
+הראל סלע <br>
+‭058-6122640‬
+ <br> - איתי וונונו <br>
+‭054-2706350‬<br>- יעל דוידוביץ <br>
+‭054-7570053‬
+</div>
+
+<script src="main.js"></script>
+</body>
+<script>  
+function goBacksub4() {
+    window.location.href = "sub4.html";
+}
+
+function goToInstructions() {
+
+    let doors = document.querySelector(".doorContainer");
+    doors.classList.add("open");
+
+    document.body.classList.add("fade");
+
+    setTimeout(()=>{
+        window.location.href = "instructions.html";
+    },1200);
+}
+</script> 
+</html>

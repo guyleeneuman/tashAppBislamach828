@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("assets/background/menuBackground.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    direction: ltr;
+    font-family: "secular"
+}
+
+@font-face {
+    font-family: "secular" ;
+    src: url("assets/fonts/SecularOne-Regular.ttf");
+}
+
+.navbar {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.text{
+    position: absolute;
+    top: 26%;
+    width: 62vw;
+    left: 50%;
+    font-size: 1.1rem;
+    transform: translate(-50%);
+    text-align: center;
+    direction: rtl;
+    color: #353000;
+}
+
+.button {
+    cursor: pointer;
+    position: absolute;
+    top: 87%;
+    left: 30%;
+    transform: translate(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+
+.subjects-container {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(2, auto);  /* רוחב הכפתורים בלבד */
+    grid-template-rows: auto auto;           /* שתי שורות */
+    row-gap: 0.5vw;                          /* מרווח קטן בין השורות */
+    column-gap: 2vw;                         /* מרווח בין העמודות */
+    
+    padding: 0;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+}
+
+.subject {
+    width: 10vw;       /* רוחב גדול */
+    max-width: 200px;  /* מגבלת רוחב */
+    aspect-ratio: 1/1; /* שומר על ריבוע */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.subject img {
+    width: 100%;       /* תמונה מתפרסת על כל הריבוע */
+    height: 100%;
+    object-fit: contain;
+}
+
+.subject:hover {
+    transform: scale(1.05); /* אפקט קליל בהחלקה */
+}
+
+/* רספונסיבי למסכים קטנים */
+@media (max-width: 500px) {
+    .door-container {
+        grid-template-columns: 1fr; /* 1 עמודה */
+        grid-template-rows: repeat(4, 1fr); /* 4 שורות */
+        gap: 4vw;
+    }
+
+    .subject {
+        width: 70vw;
+    }
+}
+
+/* overlay ענן קסום */
+.cloud-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle at center, rgba(180,120,255,0.6) 0%, rgba(120,50,200,0.7) 60%, rgba(80,20,150,0) 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    filter: blur(25px);
+    transition: all 0.7s ease-in-out;
+}
+
+/* מצב פעיל - ענן מתפשט וגדל */
+.cloud-overlay.active {
+    width: 200vw;    /* מתפשט על כל המסך */
+    height: 200vh;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+    animation: cloudColors 1.5s ease-in-out infinite alternate;
+}
+
+/* שינוי צבעים קסום */
+@keyframes cloudColors {
+    0% {
+        background: radial-gradient(circle at center, rgba(180,120,255,0.6) 0%, rgba(120,50,200,0.7) 60%, rgba(80,20,150,0) 100%);
+    }
+    50% {
+        background: radial-gradient(circle at center, rgba(200,150,255,0.6) 0%, rgba(150,70,220,0.7) 60%, rgba(100,30,180,0) 100%);
+    }
+    100% {
+        background: radial-gradient(circle at center, rgba(220,180,255,0.6) 0%, rgba(180,90,240,0.7) 60%, rgba(120,50,200,0) 100%);
+    }
+}
+
+@-webkit-keyframes cloudColors {
+    0% {
+        background: radial-gradient(circle at center, rgba(180,120,255,0.6) 0%, rgba(120,50,200,0.7) 60%, rgba(80,20,150,0) 100%);
+    }
+    50% {
+        background: radial-gradient(circle at center, rgba(200,150,255,0.6) 0%, rgba(150,70,220,0.7) 60%, rgba(100,30,180,0) 100%);
+    }
+    100% {
+        background: radial-gradient(circle at center, rgba(220,180,255,0.6) 0%, rgba(180,90,240,0.7) 60%, rgba(120,50,200,0) 100%);
+    }
+}
+
+/* הג'יני */
+.ginnie {
+    position: absolute;
+    width: 30%;
+    top: 85%;
+    left: 30%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* מצב פעיל - הגדלה למרכז */
+.ginnie.active {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    z-index: 101; /* מעל ה-overlay */
+}
+
+/* הטקסט */
+.text {
+    position: absolute;
+    top: 25%;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 102; /* מעל הכל */
+}
+
+.text.active {
+    opacity: 1;
+}
+
+/* overlay שמכהה את המסך */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5); /* חצי שקוף */
+    opacity: 0;
+    pointer-events: none; /* לא מפריע ללחיצות כשהוא מוסתר */
+    transition: opacity 0.5s ease-in-out;
+    z-index: 100;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all; /* מאפשר לחיצה אם רוצים לסגור בלחיצה על המסך */
+}
+
+
+.ktzinot {
+    position: absolute;
+    width: 60vw;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    display: flex;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.ktzinot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ktzinot:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+/* רספונסיבי למסכים קטנים */
+@media (max-width: 500px) {
+    .door-container {
+        grid-template-columns: 1fr; /* 1 עמודה */
+        grid-template-rows: repeat(4, 1fr); /* 4 שורות */
+        gap: 4vw;
+    }
+
+    .ktzinot {
+        width: 70vw;
+    }
+}
+
+
+.moreWishes {
+    position: absolute;
+    cursor: pointer;
+    top:87%;
+    width: 22vw;
+    left: 20%;
+    transform: translate(-50%);
+    z-index: 1000;
+}

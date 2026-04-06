@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="menuSub3.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title" src="assets/titles/sub3Title.png" alt="icon 1">
+    <!-- <img class="instructions" src="assets/titles/sub3Instructions.png" alt="icon 1"> -->
+
+    <div class="subjects-container">
+<div class="subject" onclick="goToConfirmBinleumi('moneyFlowSub')">
+  <img src="assets/elements/moneyFlowSub.png">
+</div>
+
+<div class="subject" onclick="goToConfirmBinleumi('accountSub')">
+  <img src="assets/elements/accountSub.png">
+</div>
+
+<div class="subject" onclick="goToConfirmBinleumi('moneyLeftSub')">
+  <img src="assets/elements/moneyLeftSub.png">
+</div>
+
+<div class="subject" onclick="goToConfirmBinleumi('creditSub')">
+  <img src="assets/elements/creditSub.png">
+</div>
+  </div>
+
+  </div>
+</div>
+
+<div class="buttonBack" onclick="goBack()">
+    <img src="assets/buttons/backBtn.png" alt="back">
+</div>
+
+<script src="mainB.js"></script>
+</body>
+<script>  
+
+
+function goToInstructions() {
+
+    let doors = document.querySelector(".doorContainer");
+    doors.classList.add("open");
+
+    document.body.classList.add("fade");
+
+    setTimeout(()=>{
+        window.location.href = "instructions.html";
+    },1200);
+}
+</script> 
+</html>

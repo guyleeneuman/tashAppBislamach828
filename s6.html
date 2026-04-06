@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="cloud-overlay"></div>
+<img class="phone" src="assets/elements/hovaChat.png" alt="icon 1">
+    <div  onclick="goToMenu()">
+    <img class="moreWishes" src="assets/elements/moreWishes.png" alt="icon 1">
+        <img class="slide" src="assets/titles/slide.png" alt="icon 1">
+
+    </div>
+    <img class="chat" src="assets/elements/ginnieChat.png" alt="icon 1">
+    <img class="titleh" src="assets/subsHova/s21.png" alt="start button">
+<div class="textS">ת"ש הטאץ' הינה מערכת שמטרתה להנגיש לחייל את כלל המידע הדרוש לו ואת זכויותיו. בנוסף, החייל יוכל ליות בבקרה אחר תהליכים הפתוחים איתו במשרד ת"ש. המערכת נמצאת בפלטפורמת צ 360 אליה ניתן להיכנס מהנייד/ מהמחשב. </div>
+
+
+
+<div class="buttonBack" onclick="goBack()">
+    <img src="assets/buttons/backBtn.png" alt="back">
+</div>
+
+<!-- <img class="ginnie" src="assets/elements/ginnieMenu.png" alt="icon 1"> -->
+<img class="text" src="assets/titles/menuText.png" alt="icon 1">
+<div class="overlay"></div>
+
+
+</body>
+</html>
+
+<script>
+function goToSub1() {
+    window.location.href = "subject1.html";
+}
+function goToSub2() {
+    window.location.href = "subject2.html";
+}
+function goToSub4() {
+    window.location.href = "subject4.html";
+}
+function goToSub3() {
+    window.location.href = "subject3.html";
+}
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+
+function goBack() {
+    window.location.href = "sub2P2.html";
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+const texts = [
+"חייל זכאי סיוע הינו חייל אשר נמצא במערכת יחסים מורכבת עלם הוריו ומקיים קשר מינימלי עם משפחתו, ורמת העורף הרגשי והכלכלי שמהווים עבורו הוא חלקי. #נתק טרי מההורים - עד 3 חודישם #קשר מינימלי עם ההורים/אחד מהם, אינם מהווים תא משפחתי תומך עבורו.",
+"אישורים נדרשים: #ריכוז יתרות של החייל #עובר ושב של שלושת החודשים האחרונים של החייל #פירוט כרטיס אשראי של שלושת החודשים האחרונים של החייל #ביקור בית משק תש #5 דוחות שיחה עם גורמים רלוונטיים- מתבצע על ידי סגל תש ",
+"אישורים נדרשים: #דוח עובדת סוציאלית/משטרה/פנימיה/ יועצת בית הספר/מחנכת/כל גורם מקצועי היכול לשפוך אור על מצב החייל ועל הרקע המשפחתי #המלצת מפקד ישיר #מכתב אישי של החייל #ראיון קצינת תש יחידה",
+"תא הכרת החייל הבודד במופת",
+"הטבות חייל זכאי סיוע: #מענק כספי על סך 310.30 שח #פתרונות דיור צהליים בלבד: אלח בית החייל/ אימוץ בקיבוץ #תווי קנייה אוטומטיים על סך 150 שח.",
+"#הלנה זמנית מידית- הלנה זמנית מיועדת עבור חייל שאין לו מקום הלנה קבוע עקב בעיות סוציאליות/ אישיות. ההטבה מקנה זכות להלנה מידית בבית החייל מטעם האגודה לבית החייל. לבקשה זו אין צורך בהבאת אישורים מלבד טופס בקשת החייל.",
+"#הלנה מטעמי פרט- הטבת לינה קבועה לחייל אשר נאלץ להתגורר לא בביתו עקב סיבות אישיות/ סוציאליות חריגות. ההטבה מקנה זכות להלנה במתקני האגודה למען החייל - בית החייל או בדירות אלח.",
+"אישורים נדרשים: #הצהרה לפתיחת בקשה #5 דוחות שיחה עם גורמים רלוונטיים #ביקור בית משקית תש #דוח עובדת סוציאלית/ יועצת בית הספר/ משטרה/ פנימיה/ מחנכת או כל גורם מקצועי מוסמך #מכתב אישי של החייל #ראיון קצינת תש יחידה.",
+"#הלנה מטעמי צפיפות- הטבת לינה קבועה עבור חייל שקיים עבורו קושי במגורים משותפים בביתו עקב צפיפות חריגה. צפיפות תחשב במקרים של ריבוי קטינים ולינה בחדר של 3 נפשות ומעלה כולל החייל או לינת החייל בסלון. ההטבה מקנה זכאות להלנה במתקני האגודה למען החייל",
+"אישורים נדרשים: #ביקור בית משקית תש #מכתב אישי של החייל #ראיון קצינת תש יחידה."
+
+];
+
+const titleImages = [
+    "assets/subsHova/s12.png",
+    "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+      "assets/subsHova/confirm.png",
+     "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+     "assets/subsHova/s12.png",
+];
+
+let currentIndex = 0;
+
+const textElement = document.querySelector(".textS");
+const titleElement = document.querySelector(".titleh");
+
+// טעינה ראשונית
+updateContent();
+
+// ======================
+// 📱 מובייל
+// ======================
+let startY = 0;
+let endY = 0;
+
+textElement.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+});
+
+textElement.addEventListener("touchend", (e) => {
+    endY = e.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+// ======================
+// 🖱️ דסקטופ
+// ======================
+textElement.addEventListener("click", (e) => {
+    const rect = textElement.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+
+    if (clickY < rect.height / 2) {
+        goPrev();
+    } else {
+        goNext();
+    }
+});
+
+// ======================
+// 🔥 swipe
+// ======================
+function handleSwipe() {
+    const diff = startY - endY;
+
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0) {
+        goPrev();
+    } else {
+        goNext();
+    }
+}
+
+// ======================
+// ➡️ קדימה
+// ======================
+function goNext() {
+    currentIndex = Math.min(currentIndex + 1, texts.length - 1);
+    updateContent();
+}
+
+// ======================
+// ⬅️ אחורה
+// ======================
+function goPrev() {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateContent();
+}
+
+// ======================
+// 🔄 עדכון תוכן
+// ======================
+function updateContent() {
+    textElement.style.opacity = 0;
+    titleElement.style.opacity = 0;
+
+    setTimeout(() => {
+        textElement.innerText = texts[currentIndex];
+        titleElement.src = titleImages[currentIndex];
+
+        textElement.style.opacity = 1;
+        titleElement.style.opacity = 1;
+    }, 150);
+}
+
+});
+</script>

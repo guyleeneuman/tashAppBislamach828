@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("assets/background/sub3Background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    direction: ltr;
+    font-family: "yarden";
+}
+
+/* ---------------- FONT ---------------- */
+@font-face {
+    font-family: "yarden";
+    src: url("assets/fonts/yarden-bold-alefalefalef.woff");
+}
+
+.navbar {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    top: 25%;
+    left: 65%;
+    width: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.instructions {
+    position: absolute;
+    top: 68%;
+    left: 25%;
+    width: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 100000;
+}
+
+.button {
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+
+.buttonBack {
+    cursor: pointer;
+    position: absolute;
+    top: 20%;
+    left: 24%;
+    transform: translate(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.buttonBack:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.buttonBack:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+.doorScene{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* הרקע שייחשף */
+.nextBackground{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:url("assets/background/tashOffice.png"); /* כאן תשימי URL */
+    background-size:cover;
+    background-position:center;
+}
+
+/* הדלתות */
+.doorContainer{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    perspective:1200px;
+}
+
+.door{
+    width:50%;
+    height:100%;
+    background-image:url("assets/background/closedDoor.png");
+    background-size:200% 100%;
+    background-repeat:no-repeat;
+    transition: transform 1.2s ease;
+}
+
+.left{
+    transform-origin:left;
+    background-position:left;
+}
+
+.right{
+    transform-origin:right;
+    background-position:right;
+}
+
+/* פתיחה רק עד האמצע */
+.doorContainer.open .left{
+    transform:rotateY(60deg);
+}
+
+.doorContainer.open .right{
+    transform:rotateY(-60deg);
+}
+
+.navbar,
+.title,
+.ginnie,
+.button{
+    z-index: 2;
+}
+
+
+.subjects-container {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 94vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(3, auto);  /* רוחב הכפתורים בלבד */
+    grid-template-rows: auto auto auto;           /* שתי שורות */
+    row-gap: 0.5vw;                          /* מרווח קטן בין השורות */
+    column-gap: 2vw;                         /* מרווח בין העמודות */
+    padding: 0;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+}
+
+.subject {
+    width: 0vw;       /* רוחב גדול */
+    max-width: 100px;  /* מגבלת רוחב */
+    aspect-ratio: 1/1; /* שומר על ריבוע */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.subject img {
+    width: 100%;       /* תמונה מתפרסת על כל הריבוע */
+    height: 100%;
+    object-fit: contain;
+}
+
+.subject:hover {
+    transform: scale(1.05); /* אפקט קליל בהחלקה */
+}
+
+/* רספונסיבי למסכים קטנים */
+@media (max-width: 500px) {
+    .door-container {
+        grid-template-columns: 1fr; /* 1 עמודה */
+        grid-template-rows: repeat(4, 1fr); /* 4 שורות */
+        gap: 4vw;
+    }
+
+    .subject {
+        width: 70vw;
+    }
+}
+
+.backgroundPage {
+    position: absolute;
+    top: 33%;
+    left: 55%;
+    height: 46vh;
+    width: 110vw;
+    transform: translate(-50%);
+
+}
+
+.text {
+    position: absolute;
+    top: 35vh;
+    color: #22026b;
+    left: 50%;
+    width: 72vw;
+    text-align: center;
+    transform: translate(-50%);
+    font-size: 2.1rem;
+
+}
+
+.computer {
+    position: absolute;
+    top: 28%;
+    left: 73%;
+    width: 10%;
+    transform: translate(-50%);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.phone {
+    position: absolute;
+    top: 28%;
+    left: 60%;
+    width: 10%;
+    transform: translate(-50%);
+    z-index: 1000;
+    cursor: pointer;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="subject4.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="cloud-overlay"></div>
+<img class="title" src="assets/titles/segelTash.png" alt="icon 1">
+
+    
+    <div  onclick="goToMenu()">
+    <img class="moreWishes" src="assets/elements/moreWishes.png" alt="icon 1">
+    </div>
+
+<div class="subjects-container">
+  <div class="subject" onclick="goTo17()">
+    <img src="assets/elements/gdud17.png" alt="subject 1">
+  </div>
+  <div class="subject" onclick="goTo450()">
+    <img src="assets/elements/gdud450.png" alt="subject 2">
+  </div>
+  <div class="subject" onclick="goTo906()">
+    <img src="assets/elements/gdud906.png" alt="subject 3">
+  </div>
+  <div class="subject" onclick="goTomafhat()">
+    <img src="assets/elements/mafhat.png" alt="subject 4">
+  </div>
+</div>
+    <div class="ktzinot" onclick="goTomKtzinot()">
+    <img src="assets/elements/ktzinot.png" alt="subject 4">
+  </div>
+<!-- <img class="text" src="assets/titles/menuText.png" alt="icon 1">
+<div class="overlay"></div> -->
+
+<script src="main.js"></script>
+</body>
+</html>
+
+<script>
+function goTo906() {
+    window.location.href = "gdud906.html";
+}
+function goTo450() {
+    window.location.href = "gdud450.html";
+}
+function goTomafhat() {
+    window.location.href = "mafhat.html";
+}
+function goTo17() {
+    window.location.href = "gdud17.html";
+}
+function goTomKtzinot() {
+    window.location.href = "ktzinot.html";
+}
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+const overlay1 = document.querySelector('.cloud-overlay');
+
+function transitionTo(url) {
+    // מפעיל את האנימציה
+    overlay1.classList.add('active');
+    
+    // אחרי זמן האנימציה, מעבר לעמוד הבא
+    setTimeout(() => {
+        window.location.href = url;
+    }, 800); // זמן תואם ל-transition
+}
+
+// פונקציות עבור הכפתורים
+function goToSub1() { transitionTo('sub1.html'); }
+function goToSub2() { transitionTo('sub2.html'); }
+function goToSub3() { transitionTo('sub3.html'); }
+function goToSub4() { transitionTo('sub4.html'); }
+
+
+const ginnie = document.querySelector('.ginnie');
+const text = document.querySelector('.text');
+const overlay = document.querySelector('.overlay');
+
+ginnie.addEventListener('click', () => {
+    ginnie.classList.toggle('active'); // מגדיל/מחזיר
+    text.classList.toggle('active');   // מציג/מסתיר את הטקסט
+    overlay.classList.toggle('active'); // מציג/מסתיר את המסך הכהה
+});
+
+// אופציונלי: לחיצה על ה-overlay סוגרת את הפופאפ
+overlay.addEventListener('click', () => {
+    ginnie.classList.remove('active');
+    text.classList.remove('active');
+    overlay.classList.remove('active');
+});
+</script>

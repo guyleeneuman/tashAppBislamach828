@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title" src="assets/titles/openTitle.png" alt="icon 1">
+    <img class="ginnie" src="assets/elements/openGinnie.png" alt="icon 1">
+    <div class="button" onclick="goToInstructions()">
+    <img src="assets/buttons/tapMe.png" alt="start button">
+  </div>
+        <img class="byGuylee" src="assets/elements/byGuylee.png" alt="icon 1">
+<div class="doorScene">
+
+    <div class="nextBackground"></div> <!-- כאן יהיה הרקע שנחשף -->
+
+    <div class="doorContainer">
+        <div class="door left"></div>
+        <div class="door right"></div>
+    </div>
+
+</div>
+
+</body>
+<script>  
+function goToInstructions() {
+
+    let doors = document.querySelector(".doorContainer");
+    doors.classList.add("open");
+
+    document.body.classList.add("fade");
+
+    setTimeout(()=>{
+        window.location.href = "instructions.html";
+    },1200);
+}
+</script> 
+</html>

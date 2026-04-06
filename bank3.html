@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="subject3.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title" src="assets/titles/sub3Title.png" alt="icon 1">
+    <img class="instructions" src="assets/titles/sub3Instructions.png" alt="icon 1">
+
+    <div class="subjects-container">
+  <div class="subject" onclick="goToPage('menuBinleumi.html', 'bank1')">
+    <img src="assets/elements/bank13.png" alt="subject 1">
+  </div>
+  <div class="subject" onclick="goToPage('menuBinleumi.html', 'bank1')">
+    <img src="assets/elements/bank14.png" alt="subject 2">
+  </div>
+  <div class="subject" onclick="goToPage('menuBinleumi.html', 'bank1')">
+    <img src="assets/elements/bank15.png" alt="subject 3">
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="mainB.js"></script>
+      <div class="buttonBack" onclick="goBack1()">
+    <img src="assets/buttons/backBtn.png" alt="start button">
+  </div>
+
+</body>
+<script>  
+function goBack1() {
+    window.location.href = "bank2.html";
+}
+sessionStorage.setItem('lastPage', window.location.href);
+
+function goToInstructions() {
+
+    let doors = document.querySelector(".doorContainer");
+    doors.classList.add("open");
+
+    document.body.classList.add("fade");
+
+    setTimeout(()=>{
+        window.location.href = "instructions.html";
+    },1200);
+}
+</script> 
+
+<style>
+.subjects-container {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 94vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(3, auto);  /* רוחב הכפתורים בלבד */
+    row-gap: 0.5vw;                          /* מרווח קטן בין השורות */
+    column-gap: 2vw;                         /* מרווח בין העמודות */
+    padding: 0;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+}
+</style>
+</html>

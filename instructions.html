@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title" src="assets/elements/insructionsBlob.png"  alt="icon 1">
+<div class="ginnieContainer">
+    <div class="smoke"></div>
+    <img class="ginnie" src="assets/elements/instructionsGinnie.png" alt="icon 1">
+    </div>
+<div class="text" id="animatedText">
+אני ג’יניתש ואני הולך להגשים את כל משאלות הת”ש שלכם! בלומדה זו, נלמד על זכויות הת”ש שלנו כחיילי חובה וקבע, על איך נוציא אישורים על פי בנק ומי האנשי קשר שלנו בתחום בחטיבה.  לחצו על הנושא הרלוונטי עבורכם ונלמד עליו ביחד.
+</div>
+    <div class="button" onclick="goToMenu()">
+    <img src="assets/buttons/continue.png" alt="start button">
+  </div>
+
+
+
+</body>
+</html>
+
+
+<script>
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+
+const textEl = document.getElementById("animatedText");
+const buttonEl = document.querySelector(".button");
+const fullText = textEl.textContent.trim();
+textEl.textContent = ""; // רוקן את הטקסט
+
+const words = fullText.split(" ");
+let i = 0;
+
+function typeWord() {
+    if (i < words.length) {
+        textEl.textContent += (i === 0 ? "" : " ") + words[i];
+        i++;
+        setTimeout(typeWord, 250); // מהירות כתיבה למילה
+    } else {
+        // בסיום כתיבה – הופך את הכפתור גלוי
+        buttonEl.classList.add("show");
+    }
+}
+
+typeWord();
+</script>

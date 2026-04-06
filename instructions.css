@@ -1,0 +1,187 @@
+/* ---------------- BODY ---------------- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("assets/background/instructionsDoor.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    direction: ltr;
+    font-family: "secular";
+}
+
+/* ---------------- FONT ---------------- */
+@font-face {
+    font-family: "secular";
+    src: url("assets/fonts/SecularOne-Regular.ttf");
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 95%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* ---------------- TITLE ---------------- */
+.title {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* ---------------- GINNIE CONTAINER ---------------- */
+.ginnieContainer {
+    position: absolute;
+    top: 74%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* מעל כל האלמנטים */
+    pointer-events: none;
+}
+
+/* ---------------- GINNIE IMAGE ---------------- */
+.ginnie {
+    width:135%;
+    opacity: 0;
+    transform: translateY(120px) scale(0.8);
+    -webkit-animation: genieAppear 2s ease-out forwards; /* Safari/Chrome */
+    animation: genieAppear 2s ease-out forwards;
+}
+
+/* ---------------- GENIE ANIMATION ---------------- */
+@-webkit-keyframes genieAppear {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(120px) scale(0.7);
+        -webkit-filter: blur(8px);
+    }
+    50% {
+        opacity: 0.7;
+        -webkit-filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scale(1);
+        -webkit-filter: blur(0);
+    }
+}
+
+@keyframes genieAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(120px) scale(0.7);
+        filter: blur(8px);
+    }
+    50% {
+        opacity: 0.7;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* ---------------- SMOKE ---------------- */
+.smoke {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle,
+        rgba(180,120,255,0.8) 0%,
+        rgba(150,80,255,0.6) 30%,
+        rgba(120,60,255,0.4) 50%,
+        transparent 70%);
+    filter: blur(25px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    -webkit-animation: smokeAppear 2s ease-out forwards;
+    animation: smokeAppear 2s ease-out forwards;
+}
+
+@-webkit-keyframes smokeAppear {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-50%) scale(0.5);
+    }
+    40% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(-50%) scale(1.6);
+    }
+}
+
+@keyframes smokeAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+    }
+    40% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(1.6);
+    }
+}
+
+/* ---------------- TEXT ---------------- */
+.text {
+    position: absolute;
+    top: 24%;
+    width: 64vw;
+    left: 50%;
+    font-size: 1.1rem;
+    transform: translateX(-50%);
+    text-align: center;
+    direction: rtl;
+    color: #353000;
+    z-index: 2;
+    overflow: hidden;
+    padding-left: 4px; /* אפשר להשאיר או למחוק */
+}
+
+/* ---------------- BUTTON ---------------- */
+.button {
+    cursor: pointer;
+    position: absolute;
+    top: 87%;
+    left: 30%;
+    transform: translateX(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.5s ease;
+    z-index: 200000;
+
+    opacity: 0;       /* מוסתר בהתחלה */
+    pointer-events: none; /* לא ניתן ללחוץ עליו */
+}
+
+.button.show {
+    opacity: 1;       /* הופך גלוי */
+    pointer-events: auto; /* ניתן ללחוץ עליו */
+}
+
+.button:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button:active {
+    transform: translateX(-50%) scale(0.95);
+}

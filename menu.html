@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tashApp</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="cloud-overlay"></div>
+
+<div class="subjects-container">
+  <div class="subject" onclick="goToSub1()">
+    <img src="assets/elements/subject1.png" alt="subject 1">
+  </div>
+  <div class="subject" onclick="goToSub2()">
+    <img src="assets/elements/subject2.png" alt="subject 2">
+  </div>
+  <div class="subject" onclick="goToSub4()">
+    <img src="assets/elements/subject3.png" alt="subject 3">
+  </div>
+  <div class="subject" onclick="goToSub3()">
+    <img src="assets/elements/subject4.png" alt="subject 4">
+  </div>
+</div>
+
+<img class="ginnie" src="assets/elements/ginnieMenu.png" alt="icon 1">
+<img class="text" src="assets/titles/menuText.png" alt="icon 1">
+<div class="overlay"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
+<script>
+function goToSub1() {
+    window.location.href = "subject1.html";
+}
+function goToSub2() {
+    window.location.href = "chatHova.html";
+}
+function goToSub4() {
+    window.location.href = "subject4.html";
+}
+function goToSub3() {
+    window.location.href = "subject3.html";
+}
+
+const overlay1 = document.querySelector('.cloud-overlay');
+
+function transitionTo(url) {
+    // מפעיל את האנימציה
+    overlay1.classList.add('active');
+    
+    // אחרי זמן האנימציה, מעבר לעמוד הבא
+    setTimeout(() => {
+        window.location.href = url;
+    }, 800); // זמן תואם ל-transition
+}
+
+// פונקציות עבור הכפתורים
+function goToSub1() { transitionTo('sub1.html'); }
+function goToSub2() { transitionTo('sub2.html'); }
+function goToSub3() { transitionTo('sub3.html'); }
+function goToSub4() { transitionTo('sub4.html'); }
+
+
+const ginnie = document.querySelector('.ginnie');
+const text = document.querySelector('.text');
+const overlay = document.querySelector('.overlay');
+
+ginnie.addEventListener('click', () => {
+    ginnie.classList.toggle('active'); // מגדיל/מחזיר
+    text.classList.toggle('active');   // מציג/מסתיר את הטקסט
+    overlay.classList.toggle('active'); // מציג/מסתיר את המסך הכהה
+});
+
+// אופציונלי: לחיצה על ה-overlay סוגרת את הפופאפ
+overlay.addEventListener('click', () => {
+    ginnie.classList.remove('active');
+    text.classList.remove('active');
+    overlay.classList.remove('active');
+});
+</script>
